@@ -4,9 +4,10 @@ PongDrone is a program which purpose is to be the best beer pong playing AI. The
 
 ## Documentation
 
-Specification document (in finnish)
-Implementation document (in finnish)
-Testing document (in finnish)
+[Specification document (in finnish)](https://github.com/Migho/PongDrone/blob/master/documentation/specification.md)
+[Implementation document (in finnish)](https://github.com/Migho/PongDrone/blob/master/documentation/implementation.md)
+[Testing document (in finnish)](https://github.com/Migho/PongDrone/blob/master/documentation/testing.md)
+[Weekly reports](https://github.com/Migho/PongDrone/blob/master/documentation/weeklyReports.md)
 
 ## User guide
 
