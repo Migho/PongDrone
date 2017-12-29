@@ -11,3 +11,9 @@ Seuraavaksi selvitän käytännön kokeiluilla voiko USB-paikkaa hyödyntää ja
 Käytetyt tunnit: 5h
 
 Btw ohjaajat, olen muuten välipäivät landella enkä uskaltanut dronea kuljettaa 400 kilometriä. Konkreettista koodia voi tämän vuoksi olla ensi viikolla kovin vähän tai ei ollenkaan, onko se ok? Olen valmis tekemään dokumentaatiota sen sijaan (selvitystä miten toteutan mukien tunnistuksen).
+
+## Viikkoraportti 2 (29.12)
+
+Tähän deadlinen varsinaiseen päivään ei minulla varsinaisesti ole mitään kunnollista näytettävää - olen maanantaihin asti landella ilman dronea. Jules lupasi että palautuspäivää voidaan osaltani lykätä tiistaille.
+
+Käytetyt tunnit: 2h
