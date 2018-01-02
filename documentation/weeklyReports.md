@@ -24,4 +24,6 @@ Sain dronen taas käyttööni ja tutkin useampia erilaisia kirjastoja Dronen ohj
 
 Vasta tällä viikolla havaitsin että dronessa on myös pohjakamera (!), jonka sain kirjastolla onnistuneesti käyttööni. Omaa koodia ei itse repossa ole vielä ollenkaan, mutta sain dronen tekemään kaiken mitä halusinkin esimerkkikoodeilla ja omilla koodeillani. Havaitsin myös että dronella on mahdollista tehdä pyörähdyksiä ja muita temppuja. USB-porttia yritin saada toimimaan mutta sitä ei ole mahdollista tässä hyödyntää.
 
+Torstaiksi yritän saada aikaiseksi oikeaa koodia esimerkiksi punaisen värin tunnistamista ja seuraamista (?) varten.
+
 Käytetyt tunnit: 4h
