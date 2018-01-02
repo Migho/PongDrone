@@ -17,3 +17,11 @@ Btw ohjaajat, olen muuten välipäivät landella enkä uskaltanut dronea kuljett
 Tähän deadlinen varsinaiseen päivään ei minulla varsinaisesti ole mitään kunnollista näytettävää - olen maanantaihin asti landella ilman dronea. Jules lupasi että palautuspäivää voidaan osaltani lykätä tiistaille.
 
 Käytetyt tunnit: 2h
+
+## Viikkoraportti 2.1 (2.1)
+
+Sain dronen taas käyttööni ja tutkin useampia erilaisia kirjastoja Dronen ohjaamiseen. Loppupeleissä kokonaan oman kirjaston tekeminen ei olisi ollut mahdoton tehtävä mutta olisi kuitenkin syönyt ominaisuuksia lopulliselta sovellukselta joten päätin käyttää valmista kirjastoa. Valmistajan oma SDK olisi ollut C-kielellä jota en osaa. Varsin moni kirjastoista oli hyvä käyttää mutta PS-Drone oli mielestäni parhaiten kehitetty ja omasi parhaan dokumentaation: http://www.playsheep.de/drone
+
+Vasta tällä viikolla havaitsin että dronessa on myös pohjakamera (!), jonka sain kirjastolla onnistuneesti käyttööni. Omaa koodia ei itse repossa ole vielä ollenkaan, mutta sain dronen tekemään kaiken mitä halusinkin esimerkkikoodeilla ja omilla koodeillani. Havaitsin myös että dronella on mahdollista tehdä pyörähdyksiä ja muita temppuja. USB-porttia yritin saada toimimaan mutta sitä ei ole mahdollista tässä hyödyntää.
+
+Käytetyt tunnit: 4h
