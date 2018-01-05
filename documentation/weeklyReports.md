@@ -27,3 +27,11 @@ Vasta tällä viikolla havaitsin että dronessa on myös pohjakamera (!), jonka 
 Torstaiksi yritän saada aikaiseksi oikeaa koodia esimerkiksi punaisen värin tunnistamista ja seuraamista (?) varten.
 
 Käytetyt tunnit: 4h
+
+## Viikkoraportti 3 (5.1)
+
+Tältä puolelta viikolta kului hyvin paljon aikaa pelkästään kuvantunnistuksen opetteluun. Alusta asti oli jo melko selvää että valinta on cv2 -kirjasto, mutta ajauduin sen suhteen ongelmiin heti alussa enkä meinannut saada ympyröiden tunnistusta toimimaan, jota tarvitsen silloin kun drone hoveraa mukien yläpuolelle oikeaan kohtaan. Cv2 oli myös hämmästyttävän vaikea saada toimimaan yks yhteen dronen ohjauskirjaston kanssa, joka oli pakollista koska kirjasto kontrolloi pohjakameran käyttöä. Loppujen lopuksi en edes onnistunut siinä määräaikaan mennessä, yhdessä välissä pohjakamera toimi kuten pitikin mutta resetoitui dronen uudelleenkäynnistyksen yhteydessä. Mukien tunnistusparametrien säätöön meni myös paljon aikaa.
+
+Koodia on kovin vähän mutta kunnolla alkuun on päästy. Tällä hetkellä koodi tunnistaa mukit ylhäältä päin kuvattuna hyvin ja kohtuullisen harvoin tunnistaa muita ympyrähköjä muotoja. Koodista on helppo poimia esimerkiksi alimman mukin koordinaatit kamerassa ja tehdä tälle logiikka missä kohtaa pongipallo tiputetaan. Päädyin ratkaisuun tehdä dronen taakse avonaisen rautalankaviritelmän josta pallo tippuu kun drone tekee backflipin - se tapahtuu melkoisen äkäisellä nopeudella ja toimii melko varmasti. Kun saan tiputuksen toimimaan, drone tekee käytännössä jo sille määritellyt vähimmäisvaatimukset.
+
+Seuraava tavoite on saada ensi deadlineen mennessä vähintäänkin logiikka joka tiputtaa pallon onnistuneesti, mutta toivottavasti ja luultavasti jotain muutakin.
