@@ -35,3 +35,5 @@ Tältä puolelta viikolta kului hyvin paljon aikaa pelkästään kuvantunnistuks
 Koodia on kovin vähän mutta kunnolla alkuun on päästy. Tällä hetkellä koodi tunnistaa mukit ylhäältä päin kuvattuna hyvin ja kohtuullisen harvoin tunnistaa muita ympyrähköjä muotoja. Koodista on helppo poimia esimerkiksi alimman mukin koordinaatit kamerassa ja tehdä tälle logiikka missä kohtaa pongipallo tiputetaan. Päädyin ratkaisuun tehdä dronen taakse avonaisen rautalankaviritelmän josta pallo tippuu kun drone tekee backflipin - se tapahtuu melkoisen äkäisellä nopeudella ja toimii melko varmasti. Kun saan tiputuksen toimimaan, drone tekee käytännössä jo sille määritellyt vähimmäisvaatimukset.
 
 Seuraava tavoite on saada ensi deadlineen mennessä vähintäänkin logiikka joka tiputtaa pallon onnistuneesti, mutta toivottavasti ja luultavasti jotain muutakin.
+
+Käytetyt tunnit: 7h
