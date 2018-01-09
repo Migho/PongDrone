@@ -39,3 +39,24 @@ Periaatteessa pythonia varten olisi mahdollista tehdä testejä ja esimerkiksi p
 Seuraava tavoite on saada ensi deadlineen mennessä vähintäänkin logiikka joka tiputtaa pallon onnistuneesti, mutta toivottavasti ja luultavasti jotain muutakin.
 
 Käytetyt tunnit: 7h
+
+## Viikkoraportti 4 (9.1)
+
+Havaintoja:
+
+- Drone ei pysy paikallaan
+- Pieni huone on huono testaukselle
+- Ulkona ei tätä sovellusta voi käyttää koska tuuli haittaa tarkkuutta
+- Flipin yhteydessä drone nostaa reippaasti korkeutta noin metrin
+- Drone ei tiedosta hyvin korkeuttaan
+- Akku on huono
+- Akku kestää ladata
+- 70% liikkuminen 0.1 sekunnin ajan on itse asiassa aika paljon.
+
+Mjooh. Nyt on viimeistään selvää että drone tulee osumaan mukiin ehkä 5% todennäköisyydellä (mikä tosin on varmaan silti enemmän kuin average klusteripelaaja). Voltin yhteydessä drone tekee pakonomaisen hervottoman nousun ja dronea on muutenkin mahdoton pitää paikallaan. Noh, olipahan hauska idea.
+
+On kovin harmillista että toinen akku ei toimi, sillä akun lataaminen on hidasta eikä akku jaksa kovin pitkään lentoa. Olen yrittänyt saada tänään dronea pysymään paikoillaan mukin yläpuolella mutta se on vaikeaa, lisäksi mukintunnistus olettaa kovin helposti lattiaan heijastuvan valaisinympyrän olevan muki johon tähdätä. Extra-kansiossa on video dronen lennosta. Tuon videon kuvaamisen aikoihin drone siis lenti mukin suuntaan 100% vauhdilla jos ympyrän keskipiste oli ruudun reunalla ja vastaavasti 0% jos keskellä. Se on liikaa sillä esimerkiksi 70% vauhti ei juuri liikuta dronea välittömästi mutta saa aikaan heijauksen. Muutin arvoja siten että nopeus onkin vain puolet aiemmasta mutten saanut kaapattua määräaikaan mennessä uutta videota sen toiminnasta.
+
+Seuraavaksi hienosäädän dronen pysymään mahdollisimman hyvin paikallaan mukin yläpuolella, ja lisään droneen kontrollit. Alkuperäinen pyrkimys siis oli että drone itse likkuisi mukien yläpuolelle mutta dronen siirtäminen sinne itse on huomattavasti helpompaa, ja koska kurssi lähenee loppuaan on mielestäni järkevämpää tehdä ensin vähän ominaisuuksia sisältävä ohjelma kuin käyttökelvoton ohjelma. Eli kontrolleilla drone ohjattaisiin mukin yläpuolelle ja sen jälkeen autopilotti ottaa ohjat, ja myöhemmin pyrittäisiin korvaamaan koko manuaalinen ohjaus.
+
+Käytetyt tunnit: 6h
