@@ -11,11 +11,7 @@ Tavoitteena on saada Drone malliltaan Parrot AR Drone pelaamaan beer pongia site
 
 ## Pallon tiputtaminen
 
-~~Dronessa on USB-liitin, mutta vaikuttaa siltä että datalinkkiä tai ylipäätään mitään kontrollia ei ole mahdollista muodostaa mahdollisiin oheislaitteisiin. Mikäli tämä kuitenkin on mahdollista, eräs mahdollisuus olisi kiinnittää USB-liittimeen sähkömagneetti joka pitelee palloa kiinni dronen takaosassa. Helpoin toteutus lienee liimata palloon jotain magneettista.~~ USB-porttia ei voida hyödyntää.
-
-Koska on odotettavissa ettei USB-ratkaisu ole mahdollinen, varatoteutus on taiteilla rautalangasta pallonpidike josta pallo irtoaa tarpeeksi suuren jarrutuksen aiheuttaman kallistuksen yhteydessä. Dronella on mahdollista myös tehdä rolli, eli drone voisi vaihtoehtoisesti tehdä frontflipin joka tipauttaa pallon.
-
-Jos kumpikaan ylläolevista ei toimi, projekti uudelleennimetään RaivoDroneksi ja dronen uusi tarkoitus on lentää vastustajan mukeja päin. Testaus tehdään tyhjillä mukeilla.
+Pallo tiputetaan laittamalla drone tekemään voltti, jolloin takaosassa oleva pallo tippuu.
 
 ## Dronen käyttö
 
