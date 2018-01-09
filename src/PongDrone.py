@@ -11,14 +11,27 @@ drone.reset()
 # Some mandatory drone config.
 while (drone.getBattery()[0] == -1): time.sleep(0.1)
 print "Battery: "+str(drone.getBattery()[0])+"%  "+str(drone.getBattery()[1])
+drone.useDemoMode(True)
 drone.setConfigAllID()
-drone.hdVideo()
-drone.frontCam(False)
+drone.sdVideo()
+drone.frontCam()
 CDC = drone.ConfigDataCount
 while CDC == drone.ConfigDataCount: time.sleep(0.0001)
 drone.startVideo()
 drone.showVideo()
 
+drone.groundCam()
+
+# We don't want the drone to fly to the roof
+drone.setConfig("control:altitude max", 1000)
+
+# In case we wan't to save the video...
+fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+out = cv2.VideoWriter('output.mp4',fourcc, 15.0, (640,360))
+
+drone.takeoff()
+
+font = cv2.FONT_HERSHEY_SIMPLEX
 IMC = drone.VideoImageCount
 
 while True:
@@ -30,19 +43,41 @@ while True:
     # Circle detection
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     blur = cv2.medianBlur(gray,5)
-    circles = cv2.HoughCircles(blur,cv2.HOUGH_GRADIENT,1,minDist=100,param1=50,param2=50,minRadius=20,maxRadius=200)
+    circles = cv2.HoughCircles(blur,cv2.HOUGH_GRADIENT,1,minDist=100,param1=48,param2=42,minRadius=20,maxRadius=200)
 
-    # Circle drawing
+    # The magic!
     if circles is not None:
         circles = np.round(circles[0, :]).astype("int")
+        targetCircleDistance = 999
         for (x, y, r) in circles:
-            cv2.circle(frame, (x, y), r, (255, 0, 255), 2)
-    
+            cv2.circle(frame, (x, y), r, (255, 0, 255), 2)  # circle drawing
+            if np.sqrt(x*x+y*y) < targetCircleDistance:     # Spotting the most center circle
+                targetCircleDistance = np.sqrt(x*x+y*y)
+                targetCircle = x, y
+        # Moving according to the circles. Screen size is 640 x 360
+        leftRight = round((targetCircle[0]-320)/320.0/2, 3)
+        backwardForward = -round((targetCircle[1]-180)/180.0/2, 3)
+
+        # Painting the move..
+        text = "RIGHT " + str(leftRight) + "%"
+        cv2.putText(frame, text, (0, 30), font, 1, (255,255,255), 2, cv2.LINE_AA)
+        text = "FORW. " + str(backwardForward) + "%"
+        cv2.putText(frame, text, (320, 30), font, 1, (255,255,255), 2, cv2.LINE_AA)
+
+        drone.move(leftRight, backwardForward, 0, 0)
+        time.sleep(0.1)
+        drone.stop()
+
     # Paint the frame
     cv2.imshow("Frame", frame)
+    # Saving the video...
+    out.write(frame)
 
+    if cv2.waitKey(1) & 0xFF == ord('p'):
+        print "DO THE FLIP!!"
+        drone.anim(17, 0.5)
     # Stop the loop is q is pressed
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    elif cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
 cv2.destroyAllWindows()
