@@ -4,3 +4,4 @@
 
 * Ohjelmointikieli: Python2
 * Dronen hallinta: PS-Drone, source: http://www.playsheep.de/drone
+* Videon tulkinta ja tallentaminen: OpenCv2
