@@ -60,3 +60,11 @@ On kovin harmillista että toinen akku ei toimi, sillä akun lataaminen on hidas
 Seuraavaksi hienosäädän dronen pysymään mahdollisimman hyvin paikallaan mukin yläpuolella, ja lisään droneen kontrollit. Alkuperäinen pyrkimys siis oli että drone itse likkuisi mukien yläpuolelle mutta dronen siirtäminen sinne itse on huomattavasti helpompaa, ja koska kurssi lähenee loppuaan on mielestäni järkevämpää tehdä ensin vähän ominaisuuksia sisältävä ohjelma kuin käyttökelvoton ohjelma. Eli kontrolleilla drone ohjattaisiin mukin yläpuolelle ja sen jälkeen autopilotti ottaa ohjat, ja myöhemmin pyrittäisiin korvaamaan koko manuaalinen ohjaus.
 
 Käytetyt tunnit: 6h
+
+## Viikkoraportti 5 (15.1)
+
+Droneen on toteutettu nyt omat kontrollit, ja ne ovat kiusallisesti samassa tiedostossa kuin muukin sälä. Sen siirtoa voisi ehkä miettiä, mutta loppujen lopuksi koodia tuskin tulee enää mahdottomasti. Tällä viikolla samat ongelmat vaivasivat kuin viimeksikin, testaus on hankalaa ja hidasta. Manuaalikontrollit helpottavat toteutusta hieman, sillä nyt mukia ei tarvitse enää käsin siirtää vaan dronen karatessa muualle voin ottaa manuaalikontrollit käyttöön ja siirtää dronen niiden avulla takaisin mukin yläpuolelle.
+
+Tein muutoksia dronen älyyn liikkua mukin sijainnin mukaan mutta se on edelleen kovin surkea. Todennäköisesti koko ensi viikko menee sen hienosäätöön, ilmeisesti pitäisi huomioida samaan aikaan sekä dronen paikallaan pysymättömyys että mukin katoaminen näkökentästä jotenkin, vaikeaksi menee. Tälläkin viikolla loppuunkulutettu akku ja mahdottoman pitkä latausaika olivat ikäviä ongelmia.
+
+Käytetyt tunnit: 5h
