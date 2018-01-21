@@ -64,20 +64,18 @@ def wait(seconds):
         out.write(frame)
 
         pressedKey = drone.getKey()
-        if pressedKey is 'p':
-            print "DO THE FLIP!!"
-            drone.anim(17, 0.5)
-        elif manualControl:
+        if manualControl:
             # Manual control settings
-            if pressedKey is 'e': drone.moveForward(0.3)
-            elif pressedKey is 'd': drone.moveBackward(0.3)
-            elif pressedKey is 's': drone.moveLeft(0.3)
-            elif pressedKey is 'f': drone.moveRight(0.3)
-            elif pressedKey is 'w': drone.turnLeft(0.3)
-            elif pressedKey is 'r': drone.turnRight(0.3)
-            elif pressedKey is 't': drone.moveUp(0.3)
-            elif pressedKey is 'g': drone.moveDown(0.3)
-            elif pressedKey is 'n':
+            if pressedKey is '8': drone.moveForward(0.2)
+            elif pressedKey is '2': drone.moveBackward(0.2)
+            elif pressedKey is '4': drone.moveLeft(0.2)
+            elif pressedKey is '6': drone.moveRight(0.2)
+            elif pressedKey is '7': drone.turnLeft(0.2)
+            elif pressedKey is '9': drone.turnRight(0.2)
+            elif pressedKey is '+': drone.moveUp(0.2)
+            elif pressedKey is '-': drone.moveDown(0.2)
+            elif pressedKey is '0': drone.stop()
+            elif pressedKey is '/':
                 print "MANUAL CONTROL OFF"
                 manualControl = False
             else:
