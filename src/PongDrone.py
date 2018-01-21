@@ -67,12 +67,10 @@ def wait(seconds):
             elif pressedKey is '9': drone.turnRight(0.2)
             elif pressedKey is '+': drone.moveUp(0.2)
             elif pressedKey is '-': drone.moveDown(0.2)
-            elif pressedKey is '0': drone.stop()
+            elif pressedKey is '5': drone.stop()
             elif pressedKey is '/':
                 print "MANUAL CONTROL OFF"
                 manualControl = False
-            if pressedKey is 'q':
-                return True
             else:
                 drone.moveForward(0)
         elif pressedKey is 'm':
@@ -164,5 +162,5 @@ while True:
         break
     drone.stop()
 
-cv2.destroyAllWindows()
 drone.shutdown()
+cv2.destroyAllWindows()
