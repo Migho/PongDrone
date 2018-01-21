@@ -8,10 +8,14 @@
 
 ## Ohjelman yleisrakenne
 
-Ohjelma on yhdessä ajettavassa python-tiedostossa joka sisältää sekä manuaaliset kontrollit että varsinaisen autopilotin.
+Ohjelma on yhdessä ajettavassa python-tiedostossa joka sisältää sekä manuaaliset kontrollit että varsinaisen autopilotin. Itsessään koodi on jaettu kolmeen osaan ja löytyy koodista seuraavassa järjestyksessä:
+
+1. Kerran suoritettava dronen ja muuttujien alustus
+2. Wait-metodi, jonka tehtävänä on antaa dronen liikkua tietyn ajan. Samaan aikaan kuitenkin halutaan seurata käyttäjän näppäinpainalluksia, joten metodi sisältää myös manuaalisen ohjauksen koodin.
+3. Koodin "aivot" eli autopilotti, joka kutsuu aina tarvittaessa wait-metodia.
 
 ## Työn mahdolliset puitteet ja parannusehdotukset
 
 * Pallon pudotus on epätarkkaa
-* Pongipallon tunnistaminen on epätarkkaa
+* Pongimukin tunnistaminen on epätarkkaa
 * Robotti ei saavuttanut täysin autonomista ohjausta
