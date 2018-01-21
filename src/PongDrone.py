@@ -37,8 +37,16 @@ targetYaxisFix = -20
 targetXaxisSize = 50
 targetYaxisSize = 50
 
-# Speed limits
+# Speed limits and other settings
 movementSpeed = 0.08
+stabilizeTime = 1
+requiredAcquireTime = 1
+MaxCyclesToSkip = 3
+
+# Other variables (do not change)
+targetAcquired = False
+cyclesSkipped = 0
+IMC = drone.VideoImageCount
 
 drone.takeoff()
 
@@ -83,7 +91,6 @@ def wait(seconds):
     return False
 
 ### PROGRAM AND BRAINS ###
-IMC = drone.VideoImageCount
 while True:
     # Don't load same frames twice
     while drone.VideoImageCount == IMC: time.sleep(0.01)
@@ -108,28 +115,56 @@ while True:
         # Moving according to the circles. Screen size is 640 x 360
         leftRight = round((targetCircle[0]-320)/320.0/4, 3)
         backwardForward = -round((targetCircle[1]-180)/180.0/4, 3)
-
+        
+        # Calculate where to move, if we need to
         if targetCircle[0]-320-targetXaxisFix > targetXaxisSize/2:
-            leftRight = 0.08
+            leftRight = movementSpeed
         elif targetCircle[0]-320-targetXaxisFix < -targetXaxisSize/2:
-
+            leftRight = -movementSpeed
+        else: leftRight = 0
         if targetCircle[1]-180-targetYaxisFix > targetYaxisSize/2:
+            backwardForward = movementSpeed
         elif targetCircle[1]-180-targetYaxisFix < -targetYaxisSize/2:
+            backwardForward = -movementSpeed
+        else: backwardForward = 0
+        
+        # Move or not?
+        if backwardForward is 0 and leftRight is 0:
+            if targetAcquired:
+                if time.time() > targetAcquiredTime+requiredAcquireTime:
+                    print "DO THE FLIP!!"
+                    drone.anim(17, 0.5)
+                    wait(9999)
+            else:
+                targetAcquiredTime = time.time()
+                targetAcquired = True
+        # Sometimes we miss the original circle and find a new one somewhere else. In these cases we don't want to move.
+        else if targetAcquired and cyclesSkipped <= MaxCyclesToSkip:
+            backwardForward = 0
+            leftRight = 0
+            cyclesSkipped = cyclesSkipped + 1
+        else:
+            targetAcquired = False
+            cyclesSkipped = 0
 
-        drone.move(leftRight, backwardForward, 0, 0)
-
-        # Painting the move..
+        ## MOVE PAINTING ##
+        # Paint the movements
         text = "RIGHT " + str(leftRight) + "%"
         cv2.putText(frame, text, (0, 30), font, 1, (255,255,255), 2, cv2.LINE_AA)
         text = "FORW. " + str(backwardForward) + "%"
         cv2.putText(frame, text, (320, 30), font, 1, (255,255,255), 2, cv2.LINE_AA)
-
+        # Paint the target area
+        cv2.rectangle(frame,(320+targetXaxisFix-targetXaxisSize/2,180+targetYaxisFix-targetYaxisSize/2),(320+targetXaxisFix+targetXaxisSize/2,180+targetYaxisFix+targetYaxisSize/2),(0,255,0),3)
+        # Show the frame
         cv2.imshow("Frame", frame)
         out.write(frame)
-        if wait(abs(leftRight) + abs(backwardForward)):
+
+        # Movement and the time to move and stabilize. Theoretical maximium value we can get from the values is 180.
+        drone.move(leftRight, backwardForward, 0, 0)
+        if wait(min(abs(targetCircle[1]-180-targetYaxisFix) + abs(targetCircle[1]-180-targetYaxisFix)/200)):
             break
         drone.stop()
-        if wait(0.3):
+        if wait(stabilizeTime):
             break
         
     if wait(0.05):
