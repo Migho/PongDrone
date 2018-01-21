@@ -19,7 +19,6 @@ CDC = drone.ConfigDataCount
 while CDC == drone.ConfigDataCount: time.sleep(0.0001)
 drone.startVideo()
 drone.showVideo()
-
 drone.groundCam()
 
 # We don't want the drone to fly to the ceiling
@@ -27,9 +26,19 @@ drone.setConfig("control:altitude max", 1000)
 
 # In case we wan't to save the video...
 fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-out = cv2.VideoWriter('output.mp4',fourcc, 15.0, (640,360))
-
+fileName = "output" + str(time.time()) + '.mp4'
+out = cv2.VideoWriter(fileName, fourcc, 15.0, (640,360))
+# UI stuff
 font = cv2.FONT_HERSHEY_SIMPLEX
+
+# Target area size. Center of the screen is (0,0)
+targetXaxisFix = 0
+targetYaxisFix = -20
+targetXaxisSize = 50
+targetYaxisSize = 50
+
+# Speed limits
+movementSpeed = 0.08
 
 drone.takeoff()
 
@@ -95,9 +104,19 @@ while True:
             if np.sqrt(x*x+y*y) < targetCircleDistance:     # Spotting the most center circle
                 targetCircleDistance = np.sqrt(x*x+y*y)
                 targetCircle = x, y
+        
         # Moving according to the circles. Screen size is 640 x 360
         leftRight = round((targetCircle[0]-320)/320.0/4, 3)
         backwardForward = -round((targetCircle[1]-180)/180.0/4, 3)
+
+        if targetCircle[0]-320-targetXaxisFix > targetXaxisSize/2:
+            leftRight = 0.08
+        elif targetCircle[0]-320-targetXaxisFix < -targetXaxisSize/2:
+
+        if targetCircle[1]-180-targetYaxisFix > targetYaxisSize/2:
+        elif targetCircle[1]-180-targetYaxisFix < -targetYaxisSize/2:
+
+        drone.move(leftRight, backwardForward, 0, 0)
 
         # Painting the move..
         text = "RIGHT " + str(leftRight) + "%"
@@ -105,15 +124,17 @@ while True:
         text = "FORW. " + str(backwardForward) + "%"
         cv2.putText(frame, text, (320, 30), font, 1, (255,255,255), 2, cv2.LINE_AA)
 
-        drone.move(leftRight, backwardForward, 0, 0)
         cv2.imshow("Frame", frame)
         out.write(frame)
         if wait(abs(leftRight) + abs(backwardForward)):
             break
+        drone.stop()
+        if wait(0.3):
+            break
         
-    drone.stop()
-    if wait(0.3):
+    if wait(0.05):
         break
+    drone.stop()
 
 cv2.destroyAllWindows()
 drone.shutdown()
