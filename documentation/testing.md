@@ -10,3 +10,6 @@ Mukien päällä hoveroimisen toimivuus testataan käytännössä: käynnistetä
 
 Mukiin osuminen pongipallolla:
 Osumistarkkuus ja hienosäätö (missä kohtaa mukin tulee olla jotta osumistarkkuus on paras) tehdään käytännön testauksilla ja toistoilla.
+
+Muu testaus:
+Koodi ei varsinaisesti sisällä muuta testattavaa. Kontrollien toimivuus yms testataan yhdellä koeajolla.
