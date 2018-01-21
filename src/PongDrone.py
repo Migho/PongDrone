@@ -56,13 +56,6 @@ def wait(seconds):
     mstarget = int(round((time.time() + seconds) * 1000))
     IMC = drone.VideoImageCount
     while mstarget > int(round(time.time() * 1000)) or manualControl:
-        # Don't load same frames twice
-        while drone.VideoImageCount == IMC: time.sleep(0.01)
-        IMC = drone.VideoImageCount
-        frame = drone.VideoImage
-        cv2.imshow("Frame", frame)
-        out.write(frame)
-
         pressedKey = drone.getKey()
         if manualControl:
             # Manual control settings
