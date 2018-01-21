@@ -78,6 +78,8 @@ def wait(seconds):
             elif pressedKey is '/':
                 print "MANUAL CONTROL OFF"
                 manualControl = False
+            if pressedKey is 'q':
+                return True
             else:
                 drone.moveForward(0)
         elif pressedKey is 'm':
