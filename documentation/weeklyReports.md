@@ -68,3 +68,13 @@ Droneen on toteutettu nyt omat kontrollit, ja ne ovat kiusallisesti samassa tied
 Tein muutoksia dronen älyyn liikkua mukin sijainnin mukaan mutta se on edelleen kovin surkea. Todennäköisesti koko ensi viikko menee sen hienosäätöön, ilmeisesti pitäisi huomioida samaan aikaan sekä dronen paikallaan pysymättömyys että mukin katoaminen näkökentästä jotenkin, vaikeaksi menee. Tälläkin viikolla loppuunkulutettu akku ja mahdottoman pitkä latausaika olivat ikäviä ongelmia.
 
 Käytetyt tunnit: 5h
+
+## LOPPUPALAUTUS (21.1)
+
+Vaihdoin dronen toimintaa melko paljon. Aiemmin drone liikkui tietyn ajan nopeudella joka laskettiin etäisyydestä. Nyt drone liikkuu tietyn ajan etäisyyden mukaan ja nopeus on fixed. Tarkoituksena on ettei drone heijaa itseään liian kauas liian helposti. Lisäksi dronella on nyt tähtäinalue, ja kun muki pysyy alueella tarpeeksi pitkään, voltti tapahtuu.
+
+Itse asiassa koodi piti saada valmiiksi jo ennen viikonloppua, mutta en onnistunut siinä. Viikonlopun olen ollut landella jonka vuoksi en ole taas voinut testata koodia, joten suurin osa koodista on tehty ilman testausta. Loppujen lopuksi en koe tätä itse asiassa edes kovin pahana, sillä testaus on todella turhauttavaa ja hidasta vajaan 10 minuuttia kestävällä akulla, jonka lataus kestää 1,5h. Tbh mieluummin teenkin koodin ensin valmiiksi ja testaan lopuksi yhden illan aikana hienosäätämällä eri parametreja.
+
+Koska koodia ei siis ole loppupalautukseen kunnolla testattu, aion todennäköisesti hioa eri parametreja vielä ennen demotilaisuutta. Kyseiset muuttujat löytyvät selkeästi koodista eikä ydinkoodia tai kaavoja tarvitse muuttaa sitä varten, joten mielestäni nykyinen koodi on kelpuutettavissa arvosteluun. Koska drone on kovin herkkä lähtemään omille teilleen, olen ehkä hieman skeptinen siitä miten hyvin saan dronen toimimaan demotilaisuudessa, mutta katsotaan miten käy. Joka tapauksessa kurssi oli opettavainen ja mielenkiintoinen.
+
+Käytetyt tunnit: 6h
