@@ -149,7 +149,7 @@ while True:
         # Paint the target area
         cv2.rectangle(frame,(320+targetXaxisFix-targetXaxisSize/2,180+targetYaxisFix-targetYaxisSize/2),(320+targetXaxisFix+targetXaxisSize/2,180+targetYaxisFix+targetYaxisSize/2),(0,255,0),3)
         # Show the frame
-        cv2.imshow("Frame", frame)
+        cv2.imshow("Computer", frame)
         out.write(frame)
 
         # Movement and the time to move and stabilize. Theoretical maximium value we can get from the values is 180.
