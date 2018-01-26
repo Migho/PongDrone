@@ -22,7 +22,7 @@ drone.showVideo()
 drone.groundCam()
 
 # We don't want the drone to fly to the ceiling
-drone.setConfig("control:altitude max", 1000)
+drone.setConfig("control:altitude max", 2000)
 
 # In case we wan't to save the video...
 fourcc = cv2.VideoWriter_fourcc(*'mp4v')
@@ -71,13 +71,14 @@ def wait(seconds):
             elif pressedKey is '/':
                 print "MANUAL CONTROL OFF"
                 manualControl = False
-            else:
-                drone.moveForward(0)
+            #else:
+                #drone.moveForward(0)
         elif pressedKey is 'm':
             print "MANUAL CONTROL ON"
             manualControl = True
         # Stop if q is pressed
         if pressedKey is 'q':
+            drone.stop()
             return True
     return False
 
@@ -130,7 +131,7 @@ while True:
                 targetAcquiredTime = time.time()
                 targetAcquired = True
         # Sometimes we miss the original circle and find a new one somewhere else. In these cases we don't want to move.
-        else if targetAcquired and cyclesSkipped <= MaxCyclesToSkip:
+        elif targetAcquired and cyclesSkipped <= MaxCyclesToSkip:
             backwardForward = 0
             leftRight = 0
             cyclesSkipped = cyclesSkipped + 1
@@ -149,10 +150,11 @@ while True:
         # Show the frame
         cv2.imshow("Computer", frame)
         out.write(frame)
+        cv2.waitKey(1)
 
         # Movement and the time to move and stabilize. Theoretical maximium value we can get from the values is 180.
         drone.move(leftRight, backwardForward, 0, 0)
-        if wait(min(abs(targetCircle[1]-180-targetYaxisFix) + abs(targetCircle[1]-180-targetYaxisFix)/200)):
+        if wait(min(abs(targetCircle[1]-180-targetYaxisFix), abs(targetCircle[1]-180-targetYaxisFix))/200):
             break
         drone.stop()
         if wait(stabilizeTime):
